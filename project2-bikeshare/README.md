@@ -30,18 +30,18 @@ This project will learn about bike share usage patterns by computing a variety o
 <li>most common hour of day</li>
 </br>
 #2 Popular stations and trip
-
+</br>
 <li>most common start station </li></br>
 <li>most common end station </li></br>
 <li>most common trip from start to end (i.e., most frequent combination of start station and end station)
 </br>
 #3 Trip duration
-
+</br>
 <li>total travel time</li> </br>
 <li>average travel time</li>
 </br>
 #4 User info
-
+</br>
 <li>counts of each user type</li> </br>
 <li>counts of each gender (only available for NYC and Chicago)</li> </br>
 <li>earliest, most recent, most common year of birth (only available for NYC and Chicago)</li>
