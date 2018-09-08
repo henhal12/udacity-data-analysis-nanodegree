@@ -1,0 +1,36 @@
+Detailed Match Table - England:
+
+SELECT m.id, l.name AS league_name, c.name AS country_name,
+              m.season, m.stage, m.date, ht.team_long_name AS home_team,
+              at.team_long_name AS away_team, m.home_team_goal AS home_goal,
+              m.away_team_goal AS team_goal
+FROM Match m
+JOIN League l ON m.league_id = l.id
+JOIN Country c ON m.country_id = c.id
+JOIN Team ht ON m.home_team_api_id = ht.team_api_id
+JOIN Team at ON m.away_team_api_id = at.team_api_id
+WHERE country_name IN ('England', 'Italy', 'Spain', 'Germany')
+GROUP BY 1
+ORDER BY 4, 5
+
+Team_Attribute: (clean)
+
+SELECT ta.date, t.team_long_name AS team_name, t.team_api_id AS team_id,
+		ta.buildUpPlaySpeed AS buildupplay_speed, ta.buildUpPlaySpeedClass AS buildupplay_speed_class,
+		ta.buildUpPlayDribbling AS buildupplay_dribbling, ta.buildUpPlaydribblingClass AS buildupplay_dribbling_class,
+		ta.buildUpPlayPassing AS buildupplay_passing, ta.buildUpPlayPassingClass AS buildupplay_passing_class,
+		ta.buildUpPlayPositioningClass AS buildupplay_positioning_class, ta.chanceCreationPassing AS chancecreation_passing,
+		ta.chanceCreationPassingClass AS chancecreation_passing_class, ta.chanceCreationCrossing AS chancecreation_crossing,
+		ta.chanceCreationCrossingClass AS chancecreation_crossing_class, ta.chanceCreationShooting AS chancecreation_shooting,
+		ta.chanceCreationCrossingClass AS chancecreation_crossing_class, chanceCreationPositioningClass AS chancecreation_positioning_class,
+		ta.defencePressure AS defence_pressure, ta.defencePressureClass AS defence_pressure_class,
+		ta.defenceAggression AS defence_aggression, ta.defenceAggressionClass AS defence_aggression_class,
+		ta.defenceTeamWidth AS defence_team_width, ta.defenceTeamWidthClass AS defence_team_width_class,
+		ta.defenceDefenderLineClass AS defence_defender_line_class	
+FROM Team t
+JOIN Team_Attributes ta ON ta.team_api_id = t.team_api_id
+ORDER BY 2
+
+Player_Attribute:
+
+
